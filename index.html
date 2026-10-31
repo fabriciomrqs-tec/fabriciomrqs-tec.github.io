@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Barber Studio: demonstração de site para barbearias com serviços, galeria e pré-agendamento.">
+  <meta name="theme-color" content="#111111">
+  <title>Barber Studio | Seu estilo começa aqui</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <a class="logo" href="#inicio">✂ BARBER STUDIO</a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="menu-principal" aria-expanded="false">☰</button>
+    <nav id="menu-principal" class="menu" aria-label="Menu principal">
+      <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-conteudo">
+        <p class="destaque">ESTILO • TRADIÇÃO • QUALIDADE</p>
+        <h1>BARBER STUDIO</h1>
+        <h2>Seu estilo começa aqui.</h2>
+        <p class="descricao">Cortes modernos, barba e muito estilo. Uma experiência feita para você.</p>
+        <a class="botao" href="#servicos">Conhecer serviços</a>
+      </div>
+    </section>
+    <section class="servicos secao" id="servicos">
+      <h2>Nossos serviços</h2><p class="subtitulo">Escolha o serviço perfeito para renovar seu visual.</p>
+      <div class="cards">
+        <article class="card"><div class="icone">✂️</div><h3>Corte Masculino</h3><p>Corte moderno e personalizado para seu estilo.</p><strong>R$ 35,00</strong></article>
+        <article class="card"><div class="icone">🪒</div><h3>Barba</h3><p>Barba alinhada com acabamento profissional.</p><strong>R$ 25,00</strong></article>
+        <article class="card"><div class="icone">👑</div><h3>Corte + Barba</h3><p>O combo completo para renovar seu visual.</p><strong>R$ 55,00</strong></article>
+      </div>
+      <button class="botao botao-agendar" type="button">Solicitar agendamento</button>
+    </section>
+    <section class="galeria secao" id="galeria">
+      <h2>Galeria</h2><p class="subtitulo">Conheça um pouco do nosso estilo.</p>
+      <div class="galeria-grid">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Atendimento em uma barbearia" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Barbeiro realizando um corte" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Ferramentas de barbearia" loading="lazy">
+      </div>
+      <p class="aviso-galeria">Imagens ilustrativas. Não representam um estabelecimento real.</p>
+    </section>
+    <section class="secao sobre" id="sobre"><h2>Sobre nós</h2><p>Na Barber Studio, acreditamos que um bom corte vai muito além da aparência.</p><p>Nosso objetivo é oferecer uma experiência de qualidade, combinando estilo, conforto e atendimento personalizado.</p></section>
+    <section class="secao contato" id="contato"><h2>Entre em contato</h2><p>Pronto para renovar seu estilo? Prepare uma solicitação de agendamento!</p><div class="contato-informacoes"><p>📍 Endereço: a definir</p><p>📱 WhatsApp: a definir</p><p>📷 Instagram: a definir</p><p>🕒 Horário: a definir</p></div><button class="botao botao-agendar" type="button">Agendar horário</button></section>
+  </main>
+  <button class="whatsapp-flutuante botao-agendar" type="button" aria-label="Abrir pré-agendamento demonstrativo" title="Pré-agendamento">☎</button>
+  <dialog id="modal-agendamento" class="modal" aria-labelledby="titulo-agendamento">
+    <div class="modal-conteudo">
+      <button id="fechar-modal" class="fechar-modal" type="button" aria-label="Fechar">×</button>
+      <h2 id="titulo-agendamento">✂ Agendar horário</h2><p class="modal-subtitulo">Escolha o serviço e o horário desejados.</p>
+      <form id="form-agendamento">
+        <label for="nome">Seu nome</label><input id="nome" name="nome" type="text" maxlength="80" placeholder="Digite seu nome" required>
+        <label for="servico">Serviço</label><select id="servico" name="servico" required><option value="35">Corte Masculino — R$ 35,00</option><option value="25">Barba — R$ 25,00</option><option value="55">Corte + Barba — R$ 55,00</option></select>
+        <label for="data">Data desejada</label><input id="data" name="data" type="date" required>
+        <label for="horario">Horário desejado</label><select id="horario" name="horario" required><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option></select>
+        <div class="resumo-preco"><span>Valor estimado</span><strong id="preco">R$ 35,00</strong></div>
+        <button class="botao" type="submit">Gerar solicitação</button>
+      </form>
+      <div id="resultado" class="resultado" hidden><h3>Solicitação preparada!</h3><p id="mensagem-gerada"></p><div class="acoes-mensagem"><a id="enviar-whatsapp" class="botao botao-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Abrir no WhatsApp</a><button id="copiar-mensagem" class="botao botao-secundario" type="button">Copiar mensagem</button></div><p id="status-copia" role="status"></p></div>
+      <p class="aviso-demo">O WhatsApp abre com a mensagem pronta, mas você precisa apertar Enviar. Nenhum horário é reservado automaticamente.</p>
+    </div>
+  </dialog>
+  <footer class="rodape"><p>© 2026 Barber Studio.</p><p>Site demonstrativo — Dados, preços e horários fictícios.</p></footer>
+</body>
+</html>
